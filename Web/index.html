@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form with Accordions</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .header img {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <span class="dot-online"><img src="logo.png" alt=""></span>
+    <span>Makes You Work Online</span>
+    <div class="nameinner">
+    <span id="nameDisplay" class="name-display">Name of Person</span>
+</div>
+</div>
+<hr>
+
+<!--form started-->
+    <form action="submit_application.php" method="POST">
+
+        <div class="container mt-4">
+            <div class="form-row">
+                <div class="form-group" style="margin-right: 15px; margin-left: 20px;">
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name" oninput="syncName()" required>
+                </div>
+                <div class="form-group" style="margin-right: 15px; margin-left: 20px;">
+                    <!-- <input type="text" class="form-control" id="username" name="username" placeholder="Username" required> -->
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+                        <input type="email" class="form-control" id="username" name="username" placeholder="Username" required>
+                    </div>
+                    
+                </div>
+                <div class="form-group" style="margin-right: 20px; margin-left: 20px;">
+                    <select class="form-control" id="jobCategory" required>
+                        <option selected>Select Job Category</option>
+                        <option>Web Development</option>
+                        <option>Game Development</option>
+                        <option>Machine Learning</option>
+                    </select>
+                </div>
+                <div class="form-group-vertical ml-3" style="margin-right: 20px;">
+                    <div class="form-check d-flex">
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required>
+                        <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check d-flex">
+                        <input class="form-check-input" type="radio" name="gender" id="female" value="Female" required>
+                        <label class="form-check-label" for="female">Female</label>
+                    </div>
+                </div>
+                <div class="form-group-vertical ml-3">
+                    <div class="form-check d-flex">
+                        <input class="form-check-input" type="checkbox" name="jobtype[]" id="partTime" value="Part-Time">
+                        <label class="form-check-label" for="partTime">Part-Time</label>
+                    </div>
+                    <div class="form-check d-flex">
+                        <input class="form-check-input" type="checkbox" name="jobtype[]" id="fullTime" value="Full-Time">
+                        <label class="form-check-label" for="fullTime">Full-Time</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <hr>
+
+        <div id="accordion">
+            <!-- Web Development Section -->
+            <div class="card">
+                <div class="card-header accordion-button collapsed" data-toggle="collapse" href="#collapseWebDev">
+                    <span>Web Development Jobs</span>
+                    <span class="icon-right"><i class="fas fa-chevron-down rotate-icon"></i></span>
+                </div>
+                <div id="collapseWebDev" class="collapse container" data-parent="#accordion">
+                    <div class="card-body container">
+                        <div class="row container">
+                            <div class="col-md-3 job-card" style="margin-right: 85px;">
+                                <div class="job-card-content">
+                                    <div class="image-container">
+                                        <img src="pic.jpg" alt="Frontend Developer Image">
+                                    <div class="overlay"></div>
+                                    </div>
+                                    <div class="text-container">
+                                        <h5>Frontend Developer</h5>
+                                        <p style="text-align: justify;">Specializes in building or designing the visual and interactive aspects of websites using HTML, CSS, and JavaScript frameworks like React or Angular.</p>
+                                        <button type="submit" class="btn btn-success" name="frontend" style="margin-top: 5px;">Frontend Developer Job</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 job-card" style="margin-right: 85px;">
+                                <div class="job-card-content">
+                                    <div class="image-container">
+                                        <img src="pic.jpg" alt="Backend Developer Image">
+                                    </div>
+                                    <div class="text-container">
+                                        <h5>Backend Developer</h5>
+                                        <p style="text-align: justify;">Focuses on server-side logic, database management, and API integration, commonly using Janguages like PHP, Python, or Node.js.</p>
+                                        <button type="submit" class="btn btn-success" name="backend" style="margin-top: 5px;">Backend Developer Job</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 job-card" style="margin-right: 85px;">
+                                <div class="job-card-content">
+                                    <div class="image-container">
+                                        <img src="pic.jpg" alt="Full-Stack Developer Image">
+                                    </div>
+                                    <div class="text-container">
+                                        <h5>Full-Stack Developer</h5>
+                                        <p style="text-align: justify;">Combines frontend and backend. skills to handle end-to-end development, managing both the client and server sides of web applications.</p>
+                                        <button type="submit" class="btn btn-success" name="fullstack" style="margin-top: 5px;">Full-Stack Developer Job</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                        
+                        
+                    </div>      
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Game Development Section -->
+            <div class="card">
+                <div class="card-header accordion-button collapsed" data-toggle="collapse" href="#collapseGameDev">
+                    <span>Game Development Jobs</span>
+                    <span class="icon-right"><i class="fas fa-chevron-down rotate-icon"></i></span>
+                </div>
+                <div id="collapseGameDev" class="collapse container" data-parent="#accordion">
+                    <div class="card-body container">
+                        <div class="row container">
+                            <div class="col-md-3 job-card" style="margin-right: 85px;">
+                                <div class="image-container">
+                                    <img src="game.jpeg" alt="Gameplay Programmer Image">
+                                </div>
+                                <div class="text-container">
+                                    <h5>Gameplay Programmer</h5>
+                                    <p style="text-align: justify;">Works on the core game mechanics, player interactions, ensuring smooth gameplay and implementing features as designed by game designers.</p>
+                                    <button type="submit" class="btn btn-primary" name="gameplay" style="margin-top: -5px;">Gameplay Programmer Job</button>
+                                </div>
+                            </div>
+                            <div class="col-md-3 job-card" style="margin-right: 85px;">
+                                <div class="image-container">
+                                    <img src="game.jpeg" alt="Level Designer Image">
+                                </div>
+                                <div class="text-container">
+                                    <h5>Level Designer</h5>
+                                    <p style="text-align: justify;">Designs and builds game levels or worlds, focusing on layout, visual design, and player experience to ensure engaging and challenging environments.</p>
+                                    <button type="submit" class="btn btn-primary" name="level" style="margin-top: 10px;">Level Designer Job</button>
+                                </div>
+                            </div>
+                            <div class="col-md-3 job-card" style="margin-right: 85px;">
+                                <div class="image-container">
+                                    <img src="game.jpeg" alt="3D Artist Image">
+                                </div>
+                                <div class="text-container">    
+                                    <h5>3D Artist</h5>
+                                    <p style="text-align: justify;">Creates 30 models, textures, and animations for characters, environments, and other in-game assets, using software like Blender or Maya.</p>
+                                    <button type="submit" class="btn btn-primary" name="artist" style="margin-top: 10px;">Apply for 3D Artist</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Machine Learning Section -->
+            <div class="card">
+                <div class="card-header accordion-button collapsed" data-toggle="collapse" href="#collapseML">
+                    <span>Machine Learning Jobs</span>
+                    <span class="icon-right"><i class="fas fa-chevron-down rotate-icon"></i></span>
+                </div>
+                <div id="collapseML" class="collapse container" data-parent="#accordion">
+                    <div class="card-body container">
+                        <div class="row container">
+                            <div class="col-md-3 job-card" style="margin-right: 85px;">
+                                <div class="image-container">
+                                    <img src="machine1.jpg" alt="Machine Learning Engineer Image">
+                                </div>
+                                <div class="text-container"> 
+                                    <h5>ML Engineer</h5>
+                                    <p style="text-align: justify;">Builds and optimizes machine learning models, typically working like recommendation systems, image recognition, NLP, using frameworks like Tensorflow.</p>
+                                    <button type="submit" class="btn btn-danger" name="mlengineer" style="margin-top: -5px;">ML Engineer Job</button>
+                                </div>
+                            </div>
+                            <div class="col-md-3 job-card" style="margin-right: 85px;">
+                                <div class="image-container">
+                                    <img src="machine1.jpg" alt="Data Scientist Image">
+                                </div>
+                                <div class="text-container">
+                                    <h5>Data Scientist</h5>
+                                    <p style="text-align: justify;">Focuses on data analysis, model development, extracting insights from data to make informed decisions and predictions, using tools like Python, R, and SQL.</p>
+                                    <button type="submit" class="btn btn-danger" name="datascientist" style="margin-top: -5px;">Data Scientist Job</button>
+                                </div>
+                            </div>
+                            <div class="col-md-3 job-card" style="margin-right: 85px;">
+                                <div class="image-container">
+                                    <img src="machine1.jpg" alt="AI Research Scientist Image">
+                                </div>
+                                <div class="text-container"> 
+                                    <h5>AI Research Scientist</h5>
+                                    <p style="text-align: justify;">Conducts research to develop new Al and ML algorithms, often in academic or industrial labs, and works on advancing the capabilities of Al technologies.</p>
+                                    <button type="submit" class="btn btn-danger" name="airesearcher" style="margin-top: -5px;">AI Research Scientist Job</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    <!--Footer started-->
+    <footer style="background-color: #a4d3a2; color: black; padding: 20px; text-align: center;">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h5>About Us</h5>
+                    <p>Learn more about our company, our mission, and our values.</p>
+                </div>
+                <div class="col">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Job Listings</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>Contact</h5>
+                    <p>Email: info@jobportal.com</p>
+                    <p>Phone: +1 123 456 7890</p>
+                </div>
+                <div class="col">
+                    <h5>Follow Us</h5>
+                    <a href="#">Facebook</a> | 
+                    <a href="#">Twitter</a> | 
+                    <a href="#">LinkedIn</a>
+                </div>
+            </div>
+            <hr>
+            <p>© 2024 Job Portal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!--Footer Ended-->
+
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
